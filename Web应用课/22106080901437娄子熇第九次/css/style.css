@@ -1,0 +1,31 @@
+.container{
+    display: grid;
+    width: 1500px; 
+}
+li{
+    border: 0.3px gray  solid;
+    margin: 10px;
+}
+h2{
+    text-align: center;
+    font-weight: bolder;
+}
+.title{
+    font-weight: bolder;
+    font-size: large;
+}
+ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+p{
+    color: gray;
+    line-height: 20px;
+}
+div{
+    width: 250px;
+}
+img{
+    width: 360px;
+}

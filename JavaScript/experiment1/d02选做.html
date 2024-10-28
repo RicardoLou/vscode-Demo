@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+        var yearSelect = document.getElementById('year');
+        var monthSelect = document.getElementById('month');
+        var currentYear = new Date().getFullYear();
+        for (var i = currentYear; i >= currentYear - 100; i--) {
+            var option = document.createElement('option');
+            option.text = i+"年";
+            option.value = i;
+            yearSelect.add(option);
+        }
+        for (var i = 1; i <= 12; i++) {
+            var option = document.createElement('option');
+            option.text = i+"月";
+            option.value = i;
+            monthSelect.add(option);
+        }
+    };
+    </script>
+    </head>
+    <body>
+     
+    <label for="year">请选择您的出生年月:</label>
+    <select id="year"></select>
+     
+    <label for="month"></label>
+    <select id="month"></select>
+</body>
+</html>
+</html>

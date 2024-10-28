@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input id = "btn1" type="button" value="开灯" onclick="light()"></button>
+        <input id = "btn2" type="button" value="测试" onmousedown="changebg(0)" onmouseup="changebg(1)"></button>
+        <span id = "text" onmouseover="change(0)" onmouseout="change(1)">实现文字变红和放大</span>
+    </form>
+    <script>
+        var flag = true;
+        function light() {
+            if(flag) {
+                document.bgColor = "black";
+                document.querySelector('#btn1').value = "关灯";
+            }
+            else if(!flag){
+                document.bgColor = "white";
+                document.querySelector('#btn1').value = "开灯";
+            }
+            flag = !flag;
+        }
+        var obj = document.getElementById('btn2');
+        var color = obj.style.background;
+        function changebg(i) {
+            if(i == 0) {
+                obj.style.background = "green";
+            } else {
+                obj.style.background = color;
+            }
+        }
+        function change(i) {
+            if(i == 0) {
+                var obj = document.getElementById('text');
+                obj.style.color = "red";
+                obj.style.fontSize = "20px";
+            } else {
+                var obj = document.getElementById('text');
+                obj.style.color = "black";
+                obj.style.fontSize = "17px";
+            }
+        }
+    </script>
+</body>
+</html>

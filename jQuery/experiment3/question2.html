@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div button {
+            border: 0px;
+            width: 100px;
+            background-color: orange;
+        }
+        .link.color {
+            color: red; /* 悬停时红色 */
+        }
+    </style>
+</head>
+<body>
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="输入搜索内容">
+        <button id="search-button">搜索</button>
+    </div>
+    <div class="links">
+        <a href="#" class="link">女装</a>
+        <a href="#" class="link">美妆</a>
+        <a href="#" class="link">电子产品</a>
+        <a href="#" class="link">牙膏</a>
+        <a href="#" class="link">鱼钩</a>
+        <a href="#" class="link">建材</a>
+        <a href="#" class="link">女包</a>
+    </div>
+</body>
+</html>
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <script>
+$(document).ready(function() {
+    // 鼠标悬停在链接上时，改变链接颜色为红色
+    $('.link').hover(
+        function() {
+            // 添加 .bc 类，使链接变红色
+            $(this).addClass('color');
+        }, 
+        function() {
+            // 移除 .hovered 类，恢复默认颜色
+            $(this).removeClass('color');
+        }
+    );
+
+    // 点击链接时，将链接的文本显示在搜索框中
+    $('.link').click(function(event) {
+        let linkText = $(this).text(); // 获取点击链接的文本内容
+        $("#search-input").attr("value", linkText); // 将文本内容填入搜索框
+    });
+});
+    </script>
+</body>
+</html>

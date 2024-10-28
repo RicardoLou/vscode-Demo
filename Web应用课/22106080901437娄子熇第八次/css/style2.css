@@ -1,0 +1,21 @@
+form{
+    font-weight: bolder;
+    line-height: 2em;
+}
+.btnsub{
+    background-color: royalblue;
+    width: 60px;
+    height: 35px;
+}
+p{
+    font-weight: bolder;
+}
+button{
+    width: 60px;
+    height: 40px;
+    background-color: #1E90FF;
+}
+input::-moz-focus-outer{
+    outline: 1px solid blue;
+    background-color: blue;
+}

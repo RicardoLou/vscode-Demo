@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="colorBlock" style="width:100px; height:100px; background-color:red; position:absolute;">
+    </div>
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <script>
+        var isDragging = false;
+        var offset = {x: 0, y: 0};
+
+        // 鼠标按下事件
+        $('#colorBlock').mousedown(function(event) {
+            isDragging = true;
+            // 记录鼠标点击时的相对位置
+            offset.x = event.clientX - $(this).offset().left;
+            offset.y = event.clientY - $(this).offset().top;
+        });
+
+        // 鼠标移动事件
+        $(document).mousemove(function(event) {
+            if (isDragging) {
+                var xPos = event.clientX - offset.x;
+                var yPos = event.clientY - offset.y;
+                $('#colorBlock').css({
+                    left: xPos + 'px',
+                    top: yPos + 'px'
+                });
+            }
+        });
+
+        $(document).keydown(function(event) {
+            // 获取当前色块的位置
+            var currentLeft = parseInt($('#colorBlock').css('left')) || 0;
+            var currentTop = parseInt($('#colorBlock').css('top')) || 0;
+
+            // 根据按键更新色块位置
+            if (event.keyCode == 37) { // 左箭头
+                $('#colorBlock').css('left', currentLeft - 5 + 'px');
+            } else if (event.keyCode == 38) { // 上箭头
+                $('#colorBlock').css('top', currentTop - 5 + 'px');
+            } else if (event.keyCode == 39) { // 右箭头
+                $('#colorBlock').css('left', currentLeft + 5 + 'px');
+            } else if (event.keyCode == 40) { // 下箭头
+                $('#colorBlock').css('top', currentTop + 5 + 'px');
+            }
+        });
+
+        // 鼠标释放事件
+        $(document).mouseup(function(event) {
+            isDragging = false;
+        });
+    </script>
+</body>
+</html>

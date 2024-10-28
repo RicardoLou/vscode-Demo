@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>导航效果</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    .navigation {
+        display: flex;
+        background-color: yellow;
+        padding: 10px;
+    }
+
+    .nav-item {
+        flex: 1;
+        text-align: center;
+        padding: 15px;
+        margin: 0px;
+        font-size: 24px;
+        background-color: yellow;
+    }
+
+    .nav-item.hovered {
+        background-color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <div class="nav-item">1</div>
+        <div class="nav-item">2</div>
+        <div class="nav-item">3</div>
+        <div class="nav-item">4</div>
+        <div class="nav-item">5</div>
+    </div>
+
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <script>
+        // 鼠标悬停在导航项上时
+        $('.nav-item').hover(
+            function() {
+                $(this).addClass('hovered');
+            }, 
+            function() {
+                $(this).removeClass('hovered');
+            }
+        );
+    </script>
+</body>
+</html>

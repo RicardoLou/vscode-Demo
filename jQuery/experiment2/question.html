@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <style>
+        table {
+            width: 200px;
+            border-collapse: collapse;
+        }
+        table, td, th {
+            border: 1px solid black;
+            padding: 5px;
+        }
+        .selected {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>用户名</th>
+                <th>年龄</th>
+                <th>编号</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>10</td>
+                <td>1001</td>
+            </tr>
+            <tr>
+                <td>赵六</td>
+                <td>30</td>
+                <td>1002</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>30</td>
+                <td>1003</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>8</td>
+                <td>1002</td>
+            </tr>
+            <tr>
+                <td>李明</td>
+                <td>20</td>
+                <td>1005</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <label for="username">姓名：</label>
+        <input type="text" id="username">
+        <br>
+        <label for="age">年龄：</label>
+        <input type="text" id="age">
+        <br>
+        <label for="code">编号：</label>
+        <input type="text" id="code">
+    </div>
+    <button id="addRow">增加</button>
+    <button id="removeRow">删除</button>
+
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#userTable tbody").on("click", "tr", function () {
+            $(this).addClass("selected").siblings().removeClass("selected");
+    });
+
+    // 添加
+    $("#addRow").click(function () {
+        let username = $("#username").val();
+        let age = $("#age").val();
+        let code = $("#code").val();
+
+        if (username && age && code) {
+            $("#userTable tbody").append(`
+                <tr>
+                    <td>${username}</td>
+                    <td>${age}</td>
+                    <td>${code}</td>
+                </tr>
+            `);
+        } else {
+            alert("请填写完整的信息");
+        }
+    });
+    // 删除
+    $("#removeRow").click(function () {
+        $("#userTable tbody .selected").remove();
+    });
+});
+    </script>
+</body>
+</html>

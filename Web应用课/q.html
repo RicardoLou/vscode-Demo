@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+form {
+  width: 500px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+legend {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+select {
+  width: 100px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  background-color: red;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+}
+  </style>
+</head>
+<body>
+    <script>
+        function validatePhone() {
+  var phone = document.getElementById("phone").value;
+  var reg = /^1[3-9]\d{9}$/;
+  if (!reg.test(phone)) {
+    alert("请输入有效的手机号码");
+    return false;
+  }
+  return true;
+}
+
+    </script>
+    <form action="/" method="post">
+    <legend>收货地址</legend>
+    <input type="text" name="收货人" placeholder="收货人">
+    <input type="text" name="手机号码" placeholder="手机号码">
+    <input type="text" name="所在地区" placeholder="所在地区">
+    <textarea name="详细地址" placeholder="详细地址"></textarea>
+    <select name="标签">
+      <option value="家">家</option>
+      <option value="公司">公司</option>
+      <option value="学校">学校</option>
+    </select>
+    <input type="checkbox" name="默认地址">设置为默认地址
+    <input type="submit" value="提交">
+  </form>
+</body>
+</html>
+
+  

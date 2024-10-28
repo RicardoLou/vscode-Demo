@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            align-items: start;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            border: 1px solid red;
+            background-color: green;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            padding: 10px;
+            border-bottom: 1px solid red;
+            cursor: pointer;
+        }
+
+        .menu li.active {
+            color: white;
+            background-color: green;
+        }
+
+        .submenu {
+            display: none; 
+            background-color: blueviolet;
+        }
+
+        .display {
+            margin-left: 20px;
+        }
+
+        .display img {
+            width: 200px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li>女靴
+                <ul class="submenu">
+                    <li>女靴1</li>
+                    <li>女靴2</li>
+                </ul>
+            </li>
+            <li>雪地靴
+                <ul class="submenu">
+                    <li>雪地靴1</li>
+                    <li>雪地靴2</li>
+                </ul>
+            </li>
+            <li>冬裙
+                <ul class="submenu">
+                    <li>冬裙1</li>
+                    <li>冬裙2</li>
+                </ul>
+            </li>
+            <li>呢大衣
+                <ul class="submenu">
+                    <li>呢大衣1</li>
+                    <li>呢大衣2</li>
+                </ul>
+            </li>
+            <li>毛衣
+                <ul class="submenu">
+                    <li>毛衣1</li>
+                    <li>毛衣2</li>
+                </ul>
+            </li>
+            <li>棉服
+                <ul class="submenu">
+                    <li>棉服1</li>
+                    <li>棉服2</li>
+                </ul>
+            </li>
+            <li>女裤
+                <ul class="submenu">
+                    <li>女裤1</li>
+                    <li>女裤2</li>
+                </ul>
+            </li>
+            <li>羽绒服
+                <ul class="submenu">
+                    <li>羽绒服1</li>
+                    <li>羽绒服2</li>
+                </ul>
+            </li>
+            <li>牛仔裤
+                <ul class="submenu">
+                    <li>牛仔裤1</li>
+                    <li>牛仔裤2</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="display">
+        <img id="product-image" src="images/女靴.jpg" alt="Product Image">
+    </div>
+    <script src="/jQuery/lib/jquery-3.6.0.js"></script>
+    <script>
+            $('.menu > ul > li').click(function() {
+                // 隐藏所有二级菜单
+                $('.submenu').slideUp();
+
+                // 展开当前点击的二级菜单
+                $(this).children('.submenu').slideToggle();
+
+                $('.menu li').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            $('.menu li').click(function() {
+                $('.menu li').removeClass('active');
+                // 再把当前这个加上去
+                $(this).addClass('active');
+
+                let productImages = {
+                    '女靴': 'images/女靴.jpg',
+                    '雪地靴': 'images/雪地靴.jpg',
+                    '冬裙': 'images/冬裙.jpg',
+                    '呢大衣': 'images/呢大衣.jpg',
+                    '毛衣': 'images/毛衣.jpg',
+                    '棉服': 'images/棉服.jpg',
+                    '女裤': 'images/女裤.jpg',
+                    '羽绒服': 'images/羽绒服.jpg',
+                    '牛仔裤': 'images/牛仔裤.jpg'
+                };
+
+                let itemText = $(this).text();
+                // 修改图片的src的值
+                $('#product-image').attr('src', productImages[itemText]);
+            });
+    </script> 
+</body>
+</html>

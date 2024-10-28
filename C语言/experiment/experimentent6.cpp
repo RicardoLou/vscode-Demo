@@ -81,7 +81,7 @@ Status QueueTraverse(SqQueue Q){
 	printf("\n");
 	return OK;
 }
- 
+
 int main(){
  	Status j;
 	int i=0,l;

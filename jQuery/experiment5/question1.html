@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Menu</title>
+    <style>
+        body {
+            display: flex;
+            align-items:start;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            border: 1px solid red;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            padding: 10px;
+            border-bottom: 1px solid red;
+            cursor: pointer;
+        }
+
+        .menu li.active {
+            background-color: blue;
+            color: white;
+        }
+
+        .display {
+            margin-left: 20px;
+            width: 200px;
+            height: 400px;
+            position: relative;
+        }
+
+        .display img {
+            width: 200px;
+            height: 400px;
+            position: absolute;
+            display: none; /* Initially hidden */
+        }
+
+        .display img.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li>女靴</li>
+            <li>雪地靴</li>
+            <li>冬裙</li>
+            <li>呢大衣</li>
+            <li>毛衣</li>
+            <li>棉服</li>
+            <li>女裤</li>
+            <li>羽绒服</li>
+            <li>牛仔裤</li>
+        </ul>
+    </div>
+    <div class="display">
+        <img id="img-女靴" src="images/女靴.jpg" alt="女靴">
+        <img id="img-雪地靴" src="images/雪地靴.jpg" alt="雪地靴">
+        <img id="img-冬裙" src="images/冬裙.jpg" alt="冬裙">
+        <img id="img-呢大衣" src="images/呢大衣.jpg" alt="呢大衣">
+        <img id="img-毛衣" src="images/毛衣.jpg" alt="毛衣">
+        <img id="img-棉服" src="images/棉服.jpg" alt="棉服">
+        <img id="img-女裤" src="images/女裤.jpg" alt="女裤">
+        <img id="img-羽绒服" src="images/羽绒服.jpg" alt="羽绒服">
+        <img id="img-牛仔裤" src="images/牛仔裤.jpg" alt="牛仔裤">
+    </div>
+
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <script>
+        $('.menu li').hover(function() {
+            // 移除所有菜单项的active状态
+            $('.menu li').removeClass('active');
+            $(this).addClass('active');
+
+            let itemText = $(this).text();
+            let productImages = {
+                '女靴': '#img-女靴',
+                '雪地靴': '#img-雪地靴',
+                '冬裙': '#img-冬裙',
+                '呢大衣': '#img-呢大衣',
+                '毛衣': '#img-毛衣',
+                '棉服': '#img-棉服',
+                '女裤': '#img-女裤',
+                '羽绒服': '#img-羽绒服',
+                '牛仔裤': '#img-牛仔裤'
+            };
+
+            // 获取当前选中的图片ID
+            let selectedImg = productImages[itemText];
+
+            // 先收起其他图片，清空动画队列，防止动画堆积
+            $('.display img').not(selectedImg).stop(true, true).slideUp();
+            
+            // 显示当前图片
+            $(selectedImg).stop(true, true).slideDown();
+        });
+    </script>
+</body>
+</html>

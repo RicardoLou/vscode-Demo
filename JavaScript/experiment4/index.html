@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数字排序</title>
+	</head>
+	<body>
+		<script>
+			var flag = 1;
+			
+			function cmp1(x,y){
+				return x - y;
+			}
+			function cmp2(x,y){
+				return y - x;
+			}
+			function sortNumbers(){
+				var str = "";
+				var inputValue = document.getElementById("numbers-input").value;
+				str += inputValue;
+				var arr = str.split(",");
+				if(flag > 0){
+					flag = -1;
+					arr.sort(cmp1);
+					alert("从小到大排序：" + arr);
+				}
+				else{
+					flag = 1;
+					arr.sort(cmp2);
+					alert("从大到小排序：" + arr);
+				}
+			}
+		</script>
+		<span>输入六个数字，用逗号隔开</span>
+		<form name="form">
+			<input type="text" id="numbers-input">
+			<input type="button" value="排序" onclick="sortNumbers()">
+			<ul id="sorted-numbers"></ul>
+		</form>
+	</body>
+</html>

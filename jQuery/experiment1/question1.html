@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+            <tr>
+                <th>用户名</th><th>年龄</th><th>编号</th><th>籍贯</th><th>性别</th><th>专业</th>
+            </tr>
+            <tr>
+                <td>张三丰</td><td>21</td><td>1001</td><td>湖北武汉</td><td>男</td><td>电信</td>
+            </tr>
+            <tr>
+                <td>刘德华</td><td>22</td><td>1002</td><td>湖南长沙</td><td>男</td><td>计算机</td>
+            </tr>
+            <tr>
+                <td>黎秀秀</td><td>21</td><td>1003</td><td>湖北咸宁</td><td>女</td><td>计算机</td>
+            </tr>
+            <tr>
+                <td>凤凰</td><td>22</td><td>1004</td><td>湖北荆州</td><td>女</td><td>通信</td>
+            </tr>
+            <tr>
+                <td>李清照</td><td>22</td><td>1005</td><td>山东青岛</td><td>女</td><td>计算机</td>
+            </tr>
+            <tr>
+                <td>李明</td><td>20</td><td>1006</td><td>湖北武汉</td><td>女</td><td>计算机</td>
+            </tr>
+            <tr>
+                <td>张风</td><td>21</td><td>1007</td><td>湖北武汉</td><td>女</td><td>计算机</td>
+            </tr>
+    </table>
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <script>
+        for(let i = 1; i < 8; i += 2) {
+            $("table tr").eq(i).css("background-color", "skyblue");
+        }
+        for(let i = 2; i < 8; i += 2) {
+            $("table tr").eq(i).css("background-color", "yellow");
+        }
+        $("table tr:contains('李清照')").css("color", "red");
+        $("table td:contains('湖北武汉')").css("color", "blue");
+        $("table tr").css("height", "40px");
+        $("table th:nth-child(4), table td:nth-child(4)").css("width", "100px");
+    </script>
+</body>
+</html>

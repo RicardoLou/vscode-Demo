@@ -1,0 +1,30 @@
+table{
+    margin: auto;
+    border: 1px solid gray;
+    border-spacing: 0;
+}
+table th{
+    padding: 10px 30px;
+    border-bottom: 1px solid #999;
+    border-right: 1px solid #999;
+}
+table td {
+    padding: 10px 30px;
+    border-bottom: 1px solid #999;
+    border-right: 1px solid #999;
+    text-align: center;
+}
+caption{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+.left{
+    text-align: left;
+    border-right: 0px;
+}
+.right{
+    text-align: right;
+}
+.blue{
+    background-color: #E6E6FA;
+}

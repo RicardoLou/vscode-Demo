@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>成绩</th>
+                <th>等级</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>10001</td>
+                <td>张三</td>
+                <td>70</td>
+                <td>一般</td>
+            </tr>
+            <tr>
+                <td>10002</td>
+                <td>李四</td>
+                <td>89</td>
+                <td>良好</td>
+            </tr>
+            <tr>
+                <td>10003</td>
+                <td>王五</td>
+                <td>90</td>
+                <td>优秀</td>
+            </tr>
+            <tr>
+                <td>10004</td>
+                <td>赵六</td>
+                <td>60</td>
+                <td>及格</td>
+            </tr>
+            <tr>
+                <td>10005</td>
+                <td>钱七</td>
+                <td>56</td>
+                <td>不及格</td>
+            </tr>
+            <tr>
+                <td>10006</td>
+                <td>乔八</td>
+                <td>56</td>
+                <td>不及格</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <script>
+        var cnt80 = 0;
+        var cnt60 = 0;
+        var fail = [];
+        $("table tr").each(function() {
+            var score = parseInt($(this).children().eq(2).text());
+            if($(this).children().eq(3).text() == "优秀" || $(this).children().eq(3).text() == "良好") {
+                cnt80 ++;
+            }
+            if($(this).children().eq(3).text() == "不及格") {
+                cnt60 ++;
+            }
+            if(score < 60) {
+                $(this).find("td:nth-child(4)").css("background-color", "red");
+                fail.push($(this).children().eq(1).text()); // 获取姓名
+            }
+        })
+        console.log("良好及以上人数：" + cnt80 + "人");
+        console.log("不及格人数：" + cnt60 + "人");
+        console.log("不及格学生：\n" + fail.join("\n"));
+    </script>
+</body>
+</html>

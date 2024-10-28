@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		img{
+			width: 150px;
+			height: 150px;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<img src="imgs/1.JPG" id='pic' draggable='false'>
+ 
+	<script type="text/javascript">
+		var img=document.getElementById('pic');
+		var isDrag=false;
+         var diffX,diffY;
+		img.onmousedown=function(e){
+			isDrag=true;
+            var x=e.clientX;
+            var y=e.clientY;
+            diffX=x-this.offsetLeft;
+            diffY=y-this.offsetTop;
+		}
+ 
+		document.onmousemove=function(e){
+		  if(!isDrag){
+		  	return;
+		  }
+          var x=e.clientX;
+          var y=e.clientY;
+          img.style.left=x-diffX+'px';
+          img.style.top=y-diffY+'px';
+		}
+ 
+		//重置
+		document.onmouseup=function(){
+			isDrag=false;
+		}
+	</script>
+</body>
+</html>

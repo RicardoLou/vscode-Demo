@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    display: flex;
+    align-items:start;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.menu {
+    border: 1px solid red;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 10px;
+    border-bottom: 1px solid red;
+    cursor: pointer;
+}
+
+.menu li.active {
+    background-color: blue;
+    color: white;
+}
+
+.display {
+    margin-left: 20px;
+}
+
+.display img {
+    width: 200px;
+    height: 400px;
+}
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li>女靴</li>
+            <li>雪地靴</li>
+            <li>冬裙</li>
+            <li>呢大衣</li>
+            <li>毛衣</li>
+            <li>棉服</li>
+            <li>女裤</li>
+            <li>羽绒服</li>
+            <li>牛仔裤</li>
+        </ul>
+    </div>
+    <div class="display">
+        <img id="product-image" src="images/女靴.jpg" alt="Product Image">
+    </div>
+    <script src="/jQuery/lib/jquery-3.6.0.js"></script>
+    <script>
+        $('.menu li').hover(function() {
+        // 移上去时候移除现有的
+        $('.menu li').removeClass('active');
+        // 再把当前这个加上去
+        $(this).addClass('active');
+    
+        let productImages = {
+            '女鞋': 'images/女靴.jpg',
+            '雪地靴': 'images/雪地靴.jpg',
+            '冬裙': 'images/冬裙.jpg',
+            '呢大衣': 'images/呢大衣.jpg',
+            '毛衣': 'images/毛衣.jpg',
+            '棉服': 'images/棉服.jpg',
+            '女裤': 'images/女裤.jpg',
+            '羽绒服': 'images/羽绒服.jpg',
+            '牛仔裤': 'images/牛仔裤.jpg'
+        };
+    
+    let itemText = $(this).text();
+    // 修改图片的src的值
+    $('#product-image').attr('src', productImages[itemText]);
+});
+   </script> 
+</body>
+</html>

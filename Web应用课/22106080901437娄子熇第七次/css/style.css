@@ -1,0 +1,228 @@
+.b1
+{
+   margin-top: 5px;
+   padding-bottom: 10px;
+   border-top: 1px rgba(0, 0,0,0.3);
+   border-width: 2px;
+   border-style:solid;
+   border-bottom: none;
+   border-left: none;
+   border-right: none;
+}
+.b2
+{
+    border-top: 3px red;
+    border-bottom: 3px red;
+    padding-top: 300px 0px 50px 0px;
+    border-style:solid;
+    border-left: none;
+    border-right: none;
+    display: flex;
+
+}
+.links{
+    text-decoration: none;
+    color: gray;
+}
+.b3
+{
+    background-color: dodgerblue;
+    width: 300px;
+    height: 450px;
+
+}
+.b4
+{
+    border-top:0px;
+    border-bottom: 3px red;
+    padding-top: 0px 0px 50px 0px;
+    border-style:solid;
+    border-left: none;
+    border-right: none;
+    display: flex;
+}
+
+.c
+{
+    margin-left: 900px;
+    color:rgba(0, 0,0,0.3);
+}
+.c1
+{
+    margin-left: 20px;
+    color: rgba(0, 0,0,0.3);
+}
+.c2
+{
+    color: rgba(0, 0,0,0.3);
+    font-size: 15px;
+    margin-top: 2px;
+    position: absolute;
+    top: 45px;
+}
+.c3
+{
+    border-radius: 2%;
+    border-style:solid;
+    border-top:none;
+    border-color:rgba(0, 0,0,0.3);
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-left: 10px;
+    width: 180px;
+}
+
+.c4
+{
+    padding-top: 30px;
+}
+
+.c5
+{
+    text-align: center;
+}
+
+.c6
+{
+    padding-top:40px;
+}
+
+.c7
+{
+    padding-right: 30px;
+    color: rgba(0, 0,0,0.2);;
+}
+
+.color1{
+    margin-left: 20px;
+    margin-right: 20px;
+    color: aliceblue;
+}
+.color2
+{
+    color: red;
+    font-size: 30px;
+    font-weight:bold;
+}
+.color3
+{
+    color: rgba(0, 0,0,0.3);
+}
+.color4
+{
+    color: white;
+    font-size: 30px;
+    padding-left:0px;
+    float:left;
+    width: 310px;
+    border-style:solid;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom-color:black;
+    position: absolute;
+    left: 0%;
+    padding-left: 30px;
+}
+.color5
+{
+    background: rgba(0, 0,0,0.1);
+    height: 150px;
+    width: 1520px;
+    margin-top: 10px;
+}
+
+
+div li
+{
+    color: white;
+}
+
+.g1
+{
+    text-align: left;
+    border: 1px solid
+}
+.g2
+{
+   word-wrap: break-word; 
+}
+
+.record{
+    text-align: left;
+    border: 1px solid;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    width: 380px;
+    height: 250px;
+}
+.record td{
+    border: 1px black solid;
+    white-space: pre-line;
+}
+.record th{
+    border: 1px black solid
+}
+
+.tp td{
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+}
+.tp img{
+    width: 200px;
+    height: 200px;
+}
+.record caption{
+    text-align: left;
+    margin-left: 0px;
+    width: 180px;
+    background-color: rgb(128, 5, 128);
+    color:white;
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-right: 200px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.tp caption{
+    text-align: left;
+    margin-left: 8px;
+    width: 180px;
+    background-color: rgb(128, 5, 128);
+    color:white;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 200px;
+    font-size: 20px;
+}
+.q td{
+    color: #ff0000;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cc2{
+    background-color:rgb(30, 45, 255);
+    padding: 15px auto 15px auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    margin-top: 20px;
+}
+.overAll{
+    width: 1500px;
+    
+    margin: auto;
+}
+
+.WZ
+{
+    position: relative;
+
+}
+

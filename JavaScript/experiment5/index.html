@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalculateCircle</title>
+</head>
+<body>
+    <script>
+        var rr = prompt("请输入半径");
+        function  circle(r) {
+            this.r = r;
+        }
+        circle.prototype.show = function() {
+            document.write("圆的半径为：" + this.r + "<br>");
+            document.write("圆的周长为：" + parseInt(2 * 3.14 * this.r) + "<br>");
+            document.write("圆的面积为：" + parseInt(3.14 * this.r * this.r) + "<br>");
+        }
+        var c = new circle(rr);
+        c.show();
+    </script>
+</body>
+</html>

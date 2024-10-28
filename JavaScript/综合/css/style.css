@@ -1,0 +1,52 @@
+#modifyImg img {
+    display: block;
+        position: absolute;
+            top: 10px;
+            left: 20px;
+        width: 550px;
+        height: 800px;
+    }
+.smallImg1 {
+    position: absolute;
+        top: 100;
+        left: 600px;
+    width: 200px;
+    height: 250px;
+}
+.smallImg2 {
+    position: absolute;
+        top: 100;
+        left: 850px;
+    width: 200px;
+    height: 250px;
+}
+.smallImg3 {
+    position: absolute;
+        top: 100;
+        left: 1100px;
+    width: 200px;
+    height: 250px;
+}
+.smallImg4 {
+    position: absolute;
+        top: 100;
+        left: 1350px;
+    width: 200px;
+    height: 250px;
+}
+.smallImg5 {
+    position: absolute;
+        top: 100;
+        left: 1600px;
+    width: 200px;
+    height: 250px;
+}
+.TextPosition {
+    display: none;
+    position: absolute;
+        top: 260px;
+        left: 600px;
+}
+.title {
+    font-size: xx-large;
+}

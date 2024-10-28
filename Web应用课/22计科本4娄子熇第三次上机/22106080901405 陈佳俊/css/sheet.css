@@ -1,0 +1,33 @@
+ul{
+	font-size: 30px;
+	width: auto;
+	padding-left: 40px;
+	ist-style-type: none;
+	}
+.img{
+	border: 10px solid #ccc;
+	padding: 10px;
+	margin: 10px; 
+	width: 500px;
+	float: right;
+}
+h1{
+	color: green;
+}		
+.li{
+	background: url(鸟类.png) no-repeat;
+}
+ul{
+	font-size: 20px;
+	width: 100px;
+	border:1px solid #ccc;
+	list-style-type: circle;
+	margin-left: 90px;
+}
+ul:hover{
+	border:1px solid #db0e0e;
+}
+li:hover{
+	border:1px solid yellow;
+	background-color: coral;
+}

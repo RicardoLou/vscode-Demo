@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影信息展示</title>
+    <style>
+        .movie-card {
+            width: 150px;
+            height: 180px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .movie-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .movie-info {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .movie-info h3 {
+            margin: 0;
+        }
+        .movie-info p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="movie-container">
+        <!-- 电影卡片将会在这里展示 -->
+        <div class="movie-card" data-index="0">
+            <img src="img/1.jpg" alt="小丑">
+            <div class="movie-info">
+                <h3>${movies[0].title}</h3>
+                <p>评分：${movies[0].rating}</p>
+                <p>简介：${movies[0].synopsis}</p>
+            </div>
+        </div>
+        <div class="movie-card" data-index="1">
+            <img src="img/2.jpg" alt="Godzilla: King of the Monsters">
+            <div class="movie-info">
+                <h3>${movies[1].title}</h3>
+                <p>评分：${movies[1].rating}</p>
+                <p>简介：${movies[1].synopsis}</p>
+            </div>
+        </div>
+        <!-- 更多电影卡片 -->
+    </div>
+    <div id="movie-info">
+        <!-- 电影信息将会在这里展示 -->
+    </div>
+
+    <script>
+        const movieCards = document.querySelectorAll('.movie-card');
+        const movieInfo = document.getElementById('movie-info');
+        let currentMovieIndex = -1;
+
+        function showMovieInfo(index) {
+            if (index === currentMovieIndex) {
+                return;
+            }
+            currentMovieIndex = index;
+            movieInfo.innerHTML = `
+                <div class="movie-info">
+                    <h3>${movies[index].title}</h3>
+                    <p>评分：${movies[index].rating}</p>
+                    <p>简介：${movies[index].synopsis}</p>
+                </div>
+            `;
+            movieInfo.style.display = 'block';
+        }
+
+        function hideMovieInfo() {
+            movieInfo.style.display = 'none';
+        }
+
+        movieCards.forEach((card, index) => {
+            card.addEventListener('mouseover', () => {
+                showMovieInfo(index);
+            });
+            card.addEventListener('mouseout', () => {
+                hideMovieInfo();
+            });
+        });
+    </script>
+</body>
+</html>
