@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板</title>
+    <style>
+        #message-board {
+            padding-top: 20px;
+            width: 400px;
+            margin-top: 20px;
+            float: right;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;     
+            height: 100vh;           
+            margin: 0;               
+        }
+        .bigBox {
+            border: 1px solid black;
+            padding: 20px;
+        }
+        #message {
+            width: 500px;
+            height: 300px;
+        }
+        .message:last-child {
+            border-bottom: none;
+        }
+        .delete-link {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        #post-btn {
+            width: 80px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bigBox">
+    <label for="message">留言：</label><br>
+    <textarea id="message"></textarea><br>
+    <button id="post-btn" style="background-color: skyblue;">发布</button>
+
+    <div id="message-board"></div>
+    </div>
+
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <script>
+            // 发布留言
+            $('#post-btn').click(function() {
+                var messageText = $('#message').val().trim(); // 去除空格
+                // 如果不是空的话
+                if (messageText) {
+                    var messageHtml = `<div class="message" style="border-bottom: 1px dashed black">
+                        <span>${messageText}</span>
+                        <a href="#" class="deleteLink" style="float: right;">删除</a>
+                    </div>`;
+                    
+                    // 添加
+                    // 加入进去后先hide 然后逐渐显示出来
+                    $('#message-board').prepend($(messageHtml).hide().fadeIn(500));
+                    
+                    // 清空输入框
+                    $('#message').val('');
+                }
+            });
+
+            // 删除留言
+            $('#message-board').on('click', '.deleteLink', function(event) {
+                // 找到父节点class为message的，直接删掉整个小的div
+                $(this).parent('.message').fadeOut(500, function() {
+                    $(this).remove();
+                });
+            });
+    </script>
+</body>
+</html>
