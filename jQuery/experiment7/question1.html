@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            width: 200px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            transition: width 0.3s;
+        }
+
+        /* 设置每个 li 的背景图片 */
+        ul li:nth-child(1) {
+            background-image: url('images/01.jpg');
+        }
+        ul li:nth-child(2) {
+            background-image: url('images/02.jpg');
+        }
+        ul li:nth-child(3) {
+            background-image: url('images/03.jpg');
+        }
+        ul li:nth-child(4) {
+            background-image: url('images/04.jpg');
+        }
+        ul li:nth-child(5) {
+            background-image: url('images/05.jpg');
+        }
+    </style>
+</head>
+<body>
+    <div id="slider" class="flexslider">
+        <ul class="slides">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="./插件/slider.js"></script>
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <script>
+        $("ul li").hover(function() {
+            $(this).stop().animate({width: '600px'}, 300);
+            $(this).siblings().stop().animate({width: '100px'}, 300);
+        },
+        function() {
+            $(this).stop().animate({width: '200px'}, 300);
+            $(this).siblings().stop().animate({width: '200px'}, 300);
+        });
+    </script>
+</body>
+</html>
