@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义菜单插件</title>
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <style>
+        .menu-container {
+            width: 200px;
+            padding: 10px;
+        }
+        .menu-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .menu-button.selected {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="menu-container" id="customMenu"></div>
+
+<script>
+    // jQuery 自定义菜单插件
+    (function($) {
+        $.fn.customMenu = function(options) {
+            const settings = $.extend({
+                items: ["按钮1", "按钮2", "按钮3"], // 按钮标签内容
+                buttonSize: "16px",               // 按钮字体大小
+                selectedColor: "blue",            // 选中按钮的背景颜色
+                textColor: "white",               // 选中按钮的文本颜色
+                onSelect: function(item) {}       // 选中按钮的回调函数
+            }, options);
+
+            // 选中按钮的样式
+            const selectedStyle = {
+                backgroundColor: settings.selectedColor,
+                color: settings.textColor
+            };
+
+            // 清空容器并创建按钮
+            this.empty();
+            settings.items.forEach(item => {
+                const button = $("<button></button>")
+                    .text(item)
+                    .addClass("menu-button")
+                    .css("font-size", settings.buttonSize)
+                    .click(function() {
+                        $(".menu-button").css("background-color", "lightgray").css("color", "black");
+                        $(this).css(selectedStyle);
+                        settings.onSelect(item); // 触发回调
+                    });
+                this.append(button);
+            });
+            return this;
+        };
+    })(jQuery);
+
+    // 初始化菜单，并传入自定义选项
+    $("#customMenu").customMenu({
+        items: ["女靴", "雪地靴", "冬裙", "呢大衣", "毛衣", "棉服", "女裤", "羽绒服"],
+        buttonSize: "20px",
+        selectedColor: "blue",
+        textColor: "red",
+        onSelect: function(item) {
+            console.log("选中项目:", item);
+        }
+    });
+</script>
+
+</body>
+</html>
