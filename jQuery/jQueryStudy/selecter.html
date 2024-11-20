@@ -3,39 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="../lib/jquery-3.6.0.js"></script>
+    <title>Image Drag and Drop</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <style>
+        .draggable {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            cursor: move;
+        }
+    </style>
 </head>
 <body>
-    <div id="abc">
-        <p>
-            abc
-            <span>娄子熇大帅哥 1 span</span>
-            <span>娄子熇大帅哥 2 span</span>
-            <span>娄子熇大帅哥 3 span</span>
-            <span>娄子熇大帅哥 4 span</span>
-            <span>娄子熇大帅哥 5 span</span>
-        </p>
-        <p>
+    <!-- 两个可拖动的图片 -->
+    <img src="image1.jpg" class="draggable" id="img1">
+    <img src="image2.jpg" class="draggable" id="img2">
 
-        </p>
-    </div>
-    <div id="abc2">
-        <p>aabbcc</p>
-    </div>
-    <button class="btn" value="asdasd">点击</button>
     <script>
-        // $(document).ready(function(){
-        //     // alert($("#abc").html());
-        //     // alert($('span:eq(4)').html())
-        //     // alert($('div#abc2 p').html())
-        //     alert($('div#abc p:eq(0) span:eq(3)').html());
-        // });
-        $('.btn').dblclick(function() {
-            alert($(this).val());
-        });
-        $('span').click(function() {
-            alert($(this).html());
+        $(function() {
+            // 使图片可拖动
+            $(".draggable").draggable({
+                revert: "invalid" // 如果未成功放置，图片将返回原位
+            });
+
+            // 使图片可作为放置目标
+            $(".draggable").droppable({
+                drop: function(event, ui) {
+                    var draggedImg = ui.draggable; // 被拖动的图片
+                    var droppedImg = $(this); // 放置目标图片
+
+                    // 交换拖动和放置图片的 src
+                    var tempSrc = draggedImg.attr("src");
+                    draggedImg.attr("src", droppedImg.attr("src"));
+                    droppedImg.attr("src", tempSrc);
+                }
+            });
         });
     </script>
 </body>

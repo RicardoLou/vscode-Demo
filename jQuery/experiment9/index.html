@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <script src="../lib/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            cursor: move;
+        }
+        td {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><img src="九宫格/mmexport1.jpg" alt=""></td>
+            <td><img src="九宫格/mmexport2.jpg" alt=""></td>
+            <td><img src="九宫格/mmexport3.jpg" alt=""></td>
+        </tr>
+        <tr>
+            <td><img src="九宫格/mmexport4.jpg" alt=""></td>
+            <td><img src="九宫格/mmexport5.jpg" alt=""></td>
+            <td><img src="九宫格/mmexport6.jpg" alt=""></td>
+        </tr>
+        <tr>
+            <td><img src="九宫格/mmexport7.jpg" alt=""></td>
+            <td><img src="九宫格/mmexport8.jpg" alt=""></td>
+            <td><img src="九宫格/mmexport9.png" alt=""></td>
+        </tr>
+    </table>
+    <script>
+        $(function() {
+            let srcToSwap = null;
+
+            $("img").on("mousedown", function() {
+                // 获取点击图片的 src
+                srcToSwap = $(this).attr("src");
+            });
+
+            $("img").on("mouseup", function() {
+                if (srcToSwap) {
+                    // 获取鼠标抬起时图片的 src
+                    let currentSrc = $(this).attr("src");
+                    
+                    // 交换 src
+                    $(this).attr("src", srcToSwap);
+                    $("img[src='" + srcToSwap + "']").attr("src", currentSrc);
+
+                    // 重置 srcToSwap
+                    srcToSwap = null;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
